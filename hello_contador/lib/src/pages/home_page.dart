@@ -45,6 +45,25 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+      /**
+       * Vamos añadir el boton flotante que ya viene por defecto para el 
+       * scaffold en flutter y solo se añade el atributo que recibe un widget
+       * entonces puede ser un texto o cualquier otra cosa que sea un widget
+       * no necesariamente un boton
+       * 
+       * Enviamos al clase Floting Action Button con el 
+       * atributo onpressed para ejecutar el click del boton
+       * esta clase recibe tammbien child que es un widget que se insertara
+       * dentro del button como un texto o un icono
+       * 
+       * para insertar el icono ocuparemos un widget llamado
+       * Icon que recibe un valor que hacer referencia a la clase
+       * Icons para traer los iconos
+       */
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
+      ),
     );
   }
 }
