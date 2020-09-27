@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   final estiloTexto = TextStyle(fontSize: 45);
+  final conteo = 10;
   @override
   Widget build(context) {
     /**
@@ -39,7 +40,7 @@ class HomePage extends StatelessWidget {
               style: this.estiloTexto,
             ),
             Text(
-              '0',
+              '$conteo',
               style: this.estiloTexto,
             ),
           ],
@@ -63,10 +64,10 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          print('hola');
+          this.conteo += 1;
         },
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
