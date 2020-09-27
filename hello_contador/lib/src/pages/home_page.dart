@@ -57,12 +57,14 @@ class HomePage extends StatelessWidget {
        * dentro del button como un texto o un icono
        * 
        * para insertar el icono ocuparemos un widget llamado
-       * Icon que recibe un valor que hacer referencia a la clase
+       * Icon que recibSe un valor que hacer referencia a la clase
        * Icons para traer los iconos
        */
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          print('hola');
+        },
       ),
     );
   }
