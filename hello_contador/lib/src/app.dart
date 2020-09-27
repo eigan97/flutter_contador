@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hello_contador/src/pages/home_page.dart';
+import 'package:hello_contador/src/pages/contador_page.dart';
+// import 'package:hello_contador/src/pages/home_page.dart';
 
 /*
   * No es correcto tener la logica de varios componentes en un 
@@ -20,8 +21,9 @@ class MyApp extends StatelessWidget {
         Para centrar el texto ocupamos un widget center
         que recibe como hijo otro widget que sera centrado
       */
+      debugShowCheckedModeBanner: false,
       home: Center(
-        child: HomePage(),
+        child: ContadorPage(),
       ),
     );
   }
