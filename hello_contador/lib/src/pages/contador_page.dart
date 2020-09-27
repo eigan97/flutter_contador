@@ -67,21 +67,61 @@ class _ContadorPageState extends State<ContadorPage> {
        * Icon que recibSe un valor que hacer referencia a la clase
        * Icons para traer los iconos
        */
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          /*
-          * una vez que tenemos un statefulwidget
-            la funcion que nos permite redibujar los cambios es
-            setState() que recibe se pueden poner los cambios fuera o dentro del
-            setState solo es necesario llamar setState((){TODO})
-          */
-          setState(() {
-            this._conteo++;
-          });
-        },
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: this._creatButtons(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
+  }
+
+  List<Widget> _creatButtons() {
+    return [
+      SizedBox(width: 30.0),
+      FloatingActionButton(
+        child: Icon(Icons.exposure_zero),
+        /**
+         * solo se hace referencia a la funcion pero no se ponen '()'
+         * porque es como si le dijeramos que ejecutara la funcion desde inicio
+        */
+        onPressed: _reset,
+      ),
+      Expanded(child: SizedBox()),
+      FloatingActionButton(
+        child: Icon(Icons.remove),
+        onPressed: _remove,
+      ),
+      SizedBox(width: 10.0),
+      FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: _add,
+      ),
+    ];
+  }
+
+  void _add() {
+    /*
+    * una vez que tenemos un statefulwidget
+      la funcion que nos permite redibujar los cambios es
+      setState() que recibe se pueden poner los cambios fuera o dentro del
+      setState solo es necesario llamar setState((){TODO})
+    */
+    setState(() {
+      this._conteo++;
+    });
+  }
+
+  void _remove() {
+    setState(() {
+      if (this._conteo > 0) {
+        this._conteo--;
+      }
+    });
+  }
+
+  void _reset() {
+    setState(() {
+      this._conteo = 0;
+    });
   }
 }
