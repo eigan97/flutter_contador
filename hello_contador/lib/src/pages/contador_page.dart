@@ -1,15 +1,21 @@
-/*
-dart: se ocupa el _ para separar palabras
-y tenemos una carpeta para poner las paginas.
-Cada pagina que nosotros pongamos es un widget y es 
-la representacion de un espacio del scalffold de la pantalla
-*/
-
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  final estiloTexto = TextStyle(fontSize: 45);
-  final conteo = 10;
+//creamos la clase para el satetful
+class ContadorPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _ContadorPageState();
+  }
+}
+
+/**
+ * Se necesita otra clase es el estado de la clase anterior
+ * esta debe ser privada y por eso se añade el _ en el nombre de la clase
+ * El state necesitamos decirle que tipo de statefulwidget hay que manerjar en este caso es el contador Page
+ */
+class _ContadorPageState extends State<ContadorPage> {
+  final _estiloTexto = TextStyle(fontSize: 45);
+  int _conteo = 0;
   @override
   Widget build(BuildContext context) {
     /**
@@ -20,7 +26,7 @@ class HomePage extends StatelessWidget {
      */
     return Scaffold(
       appBar: AppBar(
-        title: Text('Titulo'),
+        title: Text('SatetFull'),
         centerTitle: true,
       ),
       /* Que pasaria si yo quisiera añadir mas texto en el 
@@ -37,11 +43,11 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             Text(
               'Hola Mundo',
-              style: this.estiloTexto,
+              style: this._estiloTexto,
             ),
             Text(
-              '$conteo',
-              style: this.estiloTexto,
+              '$_conteo',
+              style: this._estiloTexto,
             ),
           ],
         ),
@@ -64,7 +70,15 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          this.conteo += 1;
+          /*
+          * una vez que tenemos un statefulwidget
+            la funcion que nos permite redibujar los cambios es
+            setState() que recibe se pueden poner los cambios fuera o dentro del
+            setState solo es necesario llamar setState((){TODO})
+          */
+          setState(() {
+            this._conteo++;
+          });
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
