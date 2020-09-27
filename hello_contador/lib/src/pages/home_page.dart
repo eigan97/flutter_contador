@@ -8,6 +8,7 @@ la representacion de un espacio del scalffold de la pantalla
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  final estiloTexto = TextStyle(fontSize: 45);
   @override
   Widget build(context) {
     /**
@@ -21,8 +22,28 @@ class HomePage extends StatelessWidget {
         title: Text('Titulo'),
         centerTitle: true,
       ),
+      /* Que pasaria si yo quisiera añadir mas texto en el 
+        body, tendria que ocupar otro widget ya que una propiedad
+        solo puede recibir un hijo
+        para eso ocupamos el widget de column o el de row para hacerlo
+        con filas o columnas
+
+        Column widget: despliega sus hijos en forma vertical
+      */
       body: Center(
-        child: Text('Hola Mundo!'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Hola Mundo',
+              style: this.estiloTexto,
+            ),
+            Text(
+              '0',
+              style: this.estiloTexto,
+            ),
+          ],
+        ),
       ),
     );
   }
