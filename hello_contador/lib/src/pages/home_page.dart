@@ -66,6 +66,7 @@ class HomePage extends StatelessWidget {
           print('hola');
         },
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
